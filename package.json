@@ -1,0 +1,44 @@
+{
+  "name": "crypto-alerts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "tsc",
+    "build:bundle": "esbuild src/index.ts --bundle --platform=node --format=esm --outfile=dist/index.js",
+    "build": "tsc",
+    "dev": "nodemon",
+    "format": "npx prettier --write .",
+    "test": "vitest",
+    "migration": "drizzle-kit generate:sqlite",
+    "dev:redis": "docker run -dp 6379:6379 -it redis/redis-stack-server:latest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.2",
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/node": "^20.10.5",
+    "@types/ws": "^8.5.10",
+    "drizzle-kit": "^0.20.7",
+    "esbuild": "^0.19.9",
+    "jest-websocket-mock": "^2.5.0",
+    "mock-socket": "^9.3.1",
+    "nodemon": "^3.0.2",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.4",
+    "vitest-websocket-mock": "^0.3.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.2.2",
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.3.1",
+    "drizzle-orm": "^0.29.1",
+    "redis": "^4.6.12",
+    "technicalindicators": "^3.1.0",
+    "ws": "^8.15.0"
+  }
+}

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - crypto-alerts-db:/etc/db
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
+    # TODO: Depending on platform plan
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5' # Limit to half a CPU (adjust as needed)
+          memory: 256M # Limit to 256 megabytes of RAM (adjust as needed)
+        reservations:
+          cpus: '0.25' # Reserve a quarter of a CPU (adjust as needed)
+          memory: 128M # Reserve 128 megabytes of RAM (adjust as needed)
+# "Database"
+volumes:
+  crypto-alerts-db:
+    name: crypto-alerts-db

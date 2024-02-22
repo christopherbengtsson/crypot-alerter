@@ -1,0 +1,6 @@
+node_modules
+dist
+
+.env
+gpt.md
+.DS_Store
